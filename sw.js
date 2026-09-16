@@ -1,5 +1,5 @@
 /* 오프라인 캐시. 파일을 고친 뒤에는 아래 숫자를 올려야 새 버전이 반영됩니다. */
-const CACHE = "trip-v5";
+const CACHE = "trip-v8";
 const FILES = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png"];
 
 self.addEventListener("install", e => {
