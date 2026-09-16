@@ -6,8 +6,8 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<title>Canada_Honeymoon</title>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>여행 기록</title>
 
 <style>
 :root{
@@ -155,7 +155,9 @@ body.editing .cb,body.editing .two{pointer-events:none;opacity:.45}
 .datab button.danger{color:var(--maple);border-color:#E9C6BB}
 
 /* tabs */
-.tabs{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;height:var(--tabh);padding-bottom:env(safe-area-inset-bottom)}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:50;background:#FFFFFF;
+  border-top:1px solid var(--line);display:flex;height:var(--tabh);
+  padding-bottom:env(safe-area-inset-bottom);transform:translateZ(0)}
 .tabs button{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#93A19A;font-size:11px}
 .tabs button .ic{font-size:18px;line-height:1}
 .tabs button.on{color:var(--spruce);font-weight:700}
@@ -401,7 +403,7 @@ function renderHero(){
   $("hBrand").textContent=t.brand||"편집을 눌러 여행 이름을 적으세요";
   const s=t.start?new Date(t.start+"T00:00:00"):null, e=t.end?new Date(t.end+"T00:00:00"):null;
   $("hRange").textContent=(s&&e)?
-    (s.getFullYear()+"년 "+(s.getMonth()+1)+"월 "+s.getDate()+"일 – "+(e.getMonth()+1)+"월 "+e.getDate()+"일"):"날짜를 정해주세요";
+    (s.getFullYear()+"년 "+(s.getMonth()+1)+"월 "+s.getDate()+"일 – "+(e.getMonth()+1)+"월 "+e.getDate()+"일"):"편집을 눌러 날짜를 정해주세요";
   let todayN=0;
   if(s){
     const n=new Date(),tt=new Date(n.getFullYear(),n.getMonth(),n.getDate());
@@ -409,7 +411,7 @@ function renderHero(){
     if(diff>0){$("ddayNum").textContent="D-"+diff;$("ddayTxt").textContent="출발까지"}
     else if(e&&tt<=e){todayN=Math.round((tt-s)/86400000)+1;$("ddayNum").textContent="D+"+todayN;$("ddayTxt").textContent="여행 "+todayN+"일차"}
     else{$("ddayNum").textContent="다녀옴";$("ddayTxt").textContent=""}
-  }else{$("ddayNum").textContent="—";$("ddayTxt").textContent=""}
+  }else{$("ddayNum").textContent="준비 중";$("ddayTxt").textContent=""}
   const r=$("route");r.innerHTML="";
   (t.route||[]).forEach((c,i)=>{
     if(i)r.insertAdjacentHTML("beforeend","<i></i>");
