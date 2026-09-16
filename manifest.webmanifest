@@ -1,6 +1,6 @@
 {
-  "name": "여행 기록",
-  "short_name": "여행",
+  "name": "Canada",
+  "short_name": "Canada",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
